@@ -138,3 +138,4 @@ function addBlackSpot(obj) {
 let myObject = {};
 addBlackSpot(myObject);
 console.log(myObject[Symbol.for('blackSpot')]); // true
+g
