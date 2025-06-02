@@ -152,10 +152,6 @@ try {
         document.getElementById('result').textContent = formatDate(date);
     }
 
-    document.getElementById('btnFormat').addEventListener('click', showFormattedDate);
-    document.getElementById('dateInput').addEventListener('keydown', e => {
-        if (e.key === 'Enter') showFormattedDate();
-    });
 }catch (error) {
     console.error("Произошла ошибка:", error.message);
 }
