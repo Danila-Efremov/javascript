@@ -142,16 +142,27 @@ try {
         return `${dd}.${mm}.${yy}`;
     }
 
-    function showFormattedDate() {
-        const val = document.getElementById('dateInput').value;
-        if (!val) {
-            alert('Выберите дату');
-            return;
+        function formatDate(date) {
+            const dd = String(date.getDate()).padStart(2, '0');
+            const mm = String(date.getMonth() + 1).padStart(2, '0');
+            const yy = String(date.getFullYear()).slice(-2);
+            return `${dd}.${mm}.${yy}`;
         }
-        const date = new Date(val);
-        document.getElementById('result').textContent = formatDate(date);
-    }
 
+        function showFormattedDate() {
+            const val = document.getElementById('dateInput').value;
+            if (!val) {
+                alert('Выберите дату');
+                return;
+            }
+            const date = new Date(val);
+            document.getElementById('result').textContent = formatDate(date);
+        }
+
+        document.getElementById('btnFormat').addEventListener('click', showFormattedDate);
+        document.getElementById('dateInput').addEventListener('keydown', e => {
+            if (e.key === 'Enter') showFormattedDate();
+        });
 }catch (error) {
     console.error("Произошла ошибка:", error.message);
 }
