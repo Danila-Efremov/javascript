@@ -137,16 +137,23 @@ try {
 
 
     function formatDate(date) {
-        return date.toLocaleDateString();
+        const dd = String(date.getDate()).padStart(2, '0');
+        const mm = String(date.getMonth() + 1).padStart(2, '0');
+        const yy = String(date.getFullYear()).slice(-2);
+        return `${dd}.${mm}.${yy}`;
     }
 
-    let date1 = new Date(2024, 0, 20); 
-    let date2 = new Date(2000, 11, 1); 
-    let date3 = new Date(1995, 9, 10); 
+    function showFormattedDate() {
+        const val = document.getElementById('dateInput').value;
+        if (!val) {
+            alert('Выберите дату');
+            return;
+        }
+        const date = new Date(val);
+        document.getElementById('result').textContent = formatDate(date);
+    }
 
-    console.log("Дата 1:", formatDate(date1));
-    console.log("Дата 2:", formatDate(date2));
-    console.log("Дата 3:", formatDate(date3));
-} catch (error) {
-    console.error("Произошла ошибка:", error.message);
-}
+    document.getElementById('btnFormat').addEventListener('click', showFormattedDate);
+    document.getElementById('dateInput').addEventListener('keydown', e => {
+        if (e.key === 'Enter') showFormattedDate();
+    });
