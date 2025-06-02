@@ -143,7 +143,7 @@ try {
     }
         
     const today = new Date();
-    console.log(formatDate(today));
+    console.log("Дата: ", formatDate(today));
 }catch (error) {
     console.error("Произошла ошибка:", error.message);
 }
