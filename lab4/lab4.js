@@ -157,3 +157,4 @@ try {
     document.getElementById('dateInput').addEventListener('keydown', e => {
         if (e.key === 'Enter') showFormattedDate();
     });
+}
