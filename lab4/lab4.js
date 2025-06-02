@@ -136,22 +136,14 @@ try {
     console.log("Секунд с начала дня: ", getSecondsToday());
 
     function formatDate(date) {
-        const dd = String(date.getDate()).padStart(2, '0');
-        const mm = String(date.getMonth() + 1).padStart(2, '0');
-        const yy = String(date.getFullYear()).slice(-2);
-        return `${dd}.${mm}.${yy}`;
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = String(date.getFullYear()).slice(-2);
+        return `${day}.${month}.${year}`;
     }
-
-    function showFormattedDate() {
-        const val = document.getElementById('dateInput').value;
-        if (!val) {
-            alert('Выберите дату');
-            return;
-        }
-        const date = new Date(val);
-        document.getElementById('result').textContent = formatDate(date);
-    }
-    console.log("Секунд с начала дня: ", getSecondsToday());
+        
+    const today = new Date();
+    console.log(formatDate(today));
 }catch (error) {
     console.error("Произошла ошибка:", error.message);
 }
